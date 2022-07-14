@@ -1,0 +1,28 @@
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <input type="text" placeholder="Enter name" name="user" formControlName="user" #formdata><br>
+        <span style="color:red;" *ngIf="user && user.invalid && !loginForm.controls['user'].hasError('minlength') && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="user && loginForm.controls['user'].hasError('minlength') && submitted">Name should be minimum length of 4</span>
+        <br>
+        <input type="text" placeholder="Enter email" name="email" formControlName="email"><br>
+        <span style="color:red;" *ngIf="email && email.invalid && !loginForm.controls['email'].hasError('email') && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="email && loginForm.controls['email'].hasError('email') && submitted">Please enter a valid email</span>
+        <br>
+        <input type="text" placeholder="Enter phone no" name="phone" formControlName="phone"><br>
+        <span style="color:red;" *ngIf="phone && phone.invalid && !loginForm.controls['phone'].hasError('minlength') && !loginForm.controls['phone'].hasError('maxlength')  && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="phone && loginForm.controls['phone'].hasError('minlength') && !loginForm.controls['phone'].hasError('maxlength') && submitted">Minlength is 7</span>
+        <span style="color:red;" *ngIf="phone && loginForm.controls['phone'].hasError('maxlength') && submitted">Maxlength is 12</span>
+        <br>
+        <input type="text" placeholder="Enter Address" name="Address" formControlName="address"><br>
+        <span style="color:red;" *ngIf="address && address.invalid && submitted">This Field is required</span>
+        <br>
+        <input type="text" placeholder="Enter Password" name="Password" formControlName="password"><br>
+        <span style="color:red;" *ngIf="password && password.invalid && !loginForm.controls['password'].hasError('pattern') && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="password && loginForm.controls['password'].hasError('pattern') && submitted">Please enter a valid password</span>
+        <br>
+        <input type="text" placeholder="Enter Confirm Password" name="Confirm" formControlName="confirm"><br>
+        <span style="color:red;" *ngIf="user && user.invalid && submitted">This Field is required</span>
+        <br>
+        <button type="submit">Login</button>  
+    </form>
+</div>
