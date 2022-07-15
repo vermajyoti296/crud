@@ -8,14 +8,23 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./userlist.component.css']
 })
 export class UserlistComponent implements OnInit {
-  formdata: any;
+  formdata: any = [];
+  data: any;
+  item: any=[];
+  delete: any
   constructor(private router: Router) { }
+
+  deleteuser() { 
+    this.item =  this.item.filter( (value: { selected: boolean; }) =>{
+      return value.selected === false;
+      })
+  }
 
   edituser() {
     this.router.navigate(['/user/edituser']);
   }
   ngOnInit(): void {
     if (localStorage.getItem("data"))
-    this.formdata= JSON.parse(localStorage.getItem("data")!);
+      this.data = JSON.parse(localStorage.getItem("data")!);
   }
 }

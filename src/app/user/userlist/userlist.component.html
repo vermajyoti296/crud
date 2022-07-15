@@ -6,11 +6,11 @@
         <th>Address</th><br>&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
     <tr>
-        <td>{{formdata.user}}</td>&nbsp;&nbsp;
-        <td>{{formdata.email}}</td>&nbsp;&nbsp;
-        <td>{{formdata.phone}}</td>&nbsp;&nbsp;
-        <td>{{formdata.address}}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-        <td><button (click)="edituser()">Edit</button>&nbsp;<button>Delete</button></td>
+        <td>{{data.user}}</td>&nbsp;&nbsp;
+        <td>{{data.email}}</td>&nbsp;&nbsp;
+        <td>{{data.phone}}</td>&nbsp;&nbsp;
+        <td>{{data.address}}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td><button (click)="edituser()">Edit</button>&nbsp;<button (click)="deleteuser()">Delete</button></td>
     </tr>
 </table>
 <router-outlet></router-outlet>

@@ -16,11 +16,19 @@ export class EdituserComponent implements OnInit {
     if (localStorage.getItem("data"))
     this.formdata = JSON.parse(localStorage.getItem("data")!);
     this.loginForm.patchValue({
-      user:   this.formdata.user,
-      email:  this.formdata.email,
-      phone:  this.formdata.phone,
-      address:this.formdata.address,
-      password:this.formdata.password,
+      user: this.formdata.user,
+      email: this.formdata.email,
+      phone: this.formdata.phone,
+      address: this.formdata.address,
+      password: this.formdata.password,
+      confirm: this.formdata.confirm
+    })
+    this.loginForm.setValue({
+      user: this.formdata.user,
+      email: this.formdata.email,
+      phone: this.formdata.phone,
+      address: this.formdata.address,
+      password: this.formdata.password,
       confirm: this.formdata.confirm
     })
     localStorage.setItem('data', JSON.stringify(this.loginForm.value));
@@ -36,6 +44,13 @@ export class EdituserComponent implements OnInit {
   Update() {
     this.submitted = true;
     console.log(this.loginForm.value);
+    if (this.loginForm.valid) {
+      this.router.navigate(['/user/userlist']);
+      localStorage.setItem('data', JSON.stringify(this.loginForm.value))
+    }
+    else {
+      this.router.navigate(['/user/adduser']);
+    }
   }
   get user() {
     return this.loginForm.get('user');
