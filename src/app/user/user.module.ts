@@ -17,7 +17,7 @@ import { EdituserComponent } from './edituser/edituser.component';
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }
