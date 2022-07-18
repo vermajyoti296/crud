@@ -7,6 +7,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { EdituserComponent } from './edituser/edituser.component';
 
 
+
 @NgModule({
   declarations: [
     UserlistComponent,

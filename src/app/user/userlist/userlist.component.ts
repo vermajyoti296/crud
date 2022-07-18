@@ -15,9 +15,7 @@ export class UserlistComponent implements OnInit {
   constructor(private router: Router) { }
 
   deleteuser() { 
-    this.item =  this.item.filter( (value: { selected: boolean; }) =>{
-      return value.selected === false;
-      })
+    localStorage.clear();
   }
 
   edituser() {

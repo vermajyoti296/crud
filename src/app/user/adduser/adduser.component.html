@@ -21,7 +21,8 @@
         <span style="color:red;" *ngIf="password && loginForm.controls['password'].hasError('pattern') && submitted">Please enter a valid password</span>
         <br>
         <input type="text" placeholder="Enter Confirm Password" name="Confirm" formControlName="confirm"><br>
-        <span style="color:red;" *ngIf="user && user.invalid && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="confirm && confirm.invalid && !loginForm.controls['confirm'].hasError('mustMatch') && submitted">This Field is required</span>
+        <span style="color:red;" *ngIf="confirm && loginForm.controls['confirm'].hasError('mustMatch') && submitted">Password and confirm password should be same</span>
         <br>
         <button type="submit">Login</button>  
     </form>
