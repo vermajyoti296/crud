@@ -10,12 +10,13 @@ import { Validators } from '@angular/forms';
 export class UserlistComponent implements OnInit {
   formdata: any = [];
   data: any;
-  item: any=[];
-  delete: any
+  items: any=[];
+  id: any
   constructor(private router: Router) { }
 
-  deleteuser() { 
-    localStorage.clear();
+  deleteuser(items:any) { 
+    var index=this.data.indexOf(items);
+    this.data.splice(index,1);
   }
 
   edituser() {
@@ -23,6 +24,6 @@ export class UserlistComponent implements OnInit {
   }
   ngOnInit(): void {
     if (localStorage.getItem("data"))
-      this.data = JSON.parse(localStorage.getItem("data")!);
+      this.data = [JSON.parse(localStorage.getItem("data")!)];
   }
 }

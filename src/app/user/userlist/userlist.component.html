@@ -1,16 +1,18 @@
 <table>
     <tr>
+        <th>##</th>
         <th>Name</th><br>&nbsp;&nbsp;
         <th>Email</th><br>&nbsp;&nbsp;
         <th>Phone no</th><br>&nbsp;&nbsp;
         <th>Address</th><br>&nbsp;&nbsp;&nbsp;&nbsp;
     </tr>
-    <tr>
-        <td>{{data.user}}</td>&nbsp;&nbsp;
-        <td>{{data.email}}</td>&nbsp;&nbsp;
-        <td>{{data.phone}}</td>&nbsp;&nbsp;
-        <td>{{data.address}}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-        <td><button (click)="edituser()">Edit</button>&nbsp;<button (click)="deleteuser()">Delete</button></td>
+    <tr *ngFor="let items of data; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{items.user}}</td>&nbsp;&nbsp;
+        <td>{{items.email}}</td>&nbsp;&nbsp;
+        <td>{{items.phone}}</td>&nbsp;&nbsp;
+        <td>{{items.address}}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td><button (click)="edituser()">Edit</button>&nbsp;<button (click)="deleteuser(items)">Delete</button></td>
     </tr>
 </table>
 <router-outlet></router-outlet>
